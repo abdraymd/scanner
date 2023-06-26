@@ -1,5 +1,5 @@
 {
-    "name": "scanner",
+    "name": "choco-scanner-test",
     "version": "1.0.0",
     "description": "Scanner for barcodes and QR",
     "scripts": {
