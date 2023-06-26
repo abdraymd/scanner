@@ -4,11 +4,13 @@ import babel from '@rollup/plugin-babel';
 import terser from '@rollup/plugin-terser';
 
 const input = ['src/index.ts'];
+const externalZbarId = 'https://cdn.jsdelivr.net/npm/@undecaf/zbar-wasm@0.9.14/dist/main.js';
 
 export default [
     // UMD
     {
         input,
+        external: [externalZbarId],
         plugins: [
             typescript(),
             nodeResolve({ browser: true }),
@@ -24,7 +26,10 @@ export default [
             name: 'scanner',
             esModule: false,
             exports: 'named',
-            sourcemap: true
+            sourcemap: true,
+            globals: {
+                [externalZbarId]: 'externalZbarLibrary'
+            }
         }
     },
 
@@ -44,7 +49,10 @@ export default [
             dir: 'dist/esm',
             format: 'esm',
             exports: 'named',
-            sourcemap: true
+            sourcemap: true,
+            globals: {
+                [externalZbarId]: 'externalZbarLibrary'
+            }
         }
     }
 ];
