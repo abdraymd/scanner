@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scanner</title>
+    </head>
+    <style>
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-scanner {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+    <script defer src="./dist/index.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const target = document.querySelector('.container');
+            console.log(window.scanner);
+            window.scanner.init(target);
+        });
+    </script>
+    <body>
+        <div class="container"></div>
+    </body>
+</html>
